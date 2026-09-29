@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="15" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atividades.MenuController">
+
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30" />
+    </padding>
+
+    <children>
+
+        <Label text="Exercícios Java">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Label>
+      <Label text="Selecione uma atividade">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+
+        <Button onAction="#abrirAtividade" text="Atividade 1" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 2" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 3" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 4" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 5" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 6" />
+
+        <Button onAction="#abrirAtividade" text="Atividade 7" />
+      <Button onAction="#abrirAtividade" text="Atividade 8" />
+
+        <Button fx:id="btnSair" onAction="#sair" text="Sair" />
+
+    </children>
+
+</VBox>

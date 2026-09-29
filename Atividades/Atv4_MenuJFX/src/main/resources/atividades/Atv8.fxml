@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atividades.Atv8Controller">
+   <children>
+      <Label text="Atividade 8  UML e Classes">
+         <padding>
+            <Insets bottom="15.0" />
+         </padding></Label>
+      <Label fx:id="lblSelecioneImagem" text="Selecione uma imagem:">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding></Label>
+      <GridPane fx:id="gridImagens" alignment="CENTER" hgap="15.0" prefHeight="400.0" prefWidth="700.0" vgap="15.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnImagem1" alignment="CENTER" maxHeight="130.0" maxWidth="160.0" minHeight="130.0" minWidth="160.0" mnemonicParsing="false" onAction="#abrirImagem1" prefHeight="130.0" prefWidth="160.0">
+               <graphic>
+                  <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/1.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnImagem2" maxHeight="130.0" maxWidth="160.0" minHeight="130.0" minWidth="160.0" mnemonicParsing="false" onAction="#abrirImagem2" prefHeight="130.0" prefWidth="160.0" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/2.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnImagem3" maxHeight="130.0" maxWidth="160.0" minHeight="130.0" minWidth="160.0" mnemonicParsing="false" onAction="#abrirImagem3" prefHeight="130.0" prefWidth="160.0" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/3.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnImagem4" maxHeight="130.0" maxWidth="160.0" minHeight="130.0" minWidth="160.0" mnemonicParsing="false" onAction="#abrirImagem4" prefHeight="130.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="111.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/4.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </GridPane>
+      <VBox fx:id="painelDetalhes" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+         <children>
+            <Label text="Detalhes das Imagens" />
+            <VBox fx:id="listaClasses" prefHeight="200.0" prefWidth="100.0" />
+            <Button fx:id="btnVoltarImagens" mnemonicParsing="false" onAction="#voltarParaImagens" text="Voltar para Imagens" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </VBox>
+      <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+   </children>
+</VBox>

@@ -1,0 +1,54 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f4f6f8;
+}
+
+.label {
+    -fx-text-fill: #1f2937;
+    -fx-font-size: 15px;
+}
+
+.button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.text-field,
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-border-color: #2563eb;
+}
+
+.text-area {
+    -fx-font-size: 14px;
+}
+
+#lblResultado {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+#btnVoltar {
+    -fx-background-color: #6b7280;
+}
+
+#btnVoltar:hover {
+    -fx-background-color: #4b5563;
+}
