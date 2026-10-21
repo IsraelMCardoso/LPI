@@ -1,4 +1,7 @@
+
 package atividades;
+
+import java.util.Scanner;
 
 import atividades.imagem1.Loja;
 import atividades.imagem1.Roupa;
@@ -18,34 +21,162 @@ import atividades.imagem4.Pessoa;
 
 public class Atv8 {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
+    private static void titulo(String texto) {
+        System.out.println("\n========================================");
+        System.out.println("  " + texto);
+        System.out.println("========================================");
+    }
+
+    private static String lerTexto(String pergunta) {
+        while (true) {
+            System.out.print(pergunta);
+            String valor = scanner.nextLine().trim();
+
+            if (!valor.isEmpty()) {
+                return valor;
+            }
+
+            System.out.println("Campo obrigatório. Tente novamente.");
+        }
+    }
+
+    private static int lerInt(String pergunta) {
+        while (true) {
+            System.out.print(pergunta);
+
+            try {
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um número inteiro válido.");
+            }
+        }
+    }
+
+    private static double lerDouble(String pergunta) {
+        while (true) {
+            System.out.print(pergunta);
+
+            try {
+                String valor = scanner.nextLine().trim().replace(',', '.');
+                double numero = Double.parseDouble(valor);
+
+                if (Double.isFinite(numero)) {
+                    return numero;
+                }
+
+                System.out.println("Digite um número válido.");
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um número válido. Exemplo: 12,5");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
-        System.out.println("===== IMAGEM 1 - LOJA DE ROUPAS =====");
+        System.out.println("========================================");
+        System.out.println("       ATIVIDADE 8 - DEMONSTRAÇÃO");
+        System.out.println("========================================");
+        System.out.println("Informe os atributos dos 12 objetos.");
+        System.out.println("Utilize vírgula ou ponto nos decimais.");
+
+        // IMAGEM 1 - LOJA DE ROUPAS
+        titulo("IMAGEM 1 - LOJA DE ROUPAS");
 
         Loja loja = new Loja(
-                "Fashion Store",
-                "Rua Principal, 100",
-                8
+                lerTexto("Nome da loja: "),
+                lerTexto("Endereço: "),
+                lerInt("Quantidade de funcionários: ")
         );
 
         Roupa roupa = new Roupa(
-                "Camisa",
-                "M",
-                79.90
+                lerTexto("\nTipo de roupa: "),
+                lerTexto("Tamanho: "),
+                lerDouble("Preço (R$): ")
         );
 
         Manequim manequim = new Manequim(
-                1.80,
-                "Plástico",
-                "Camisa social"
+                lerDouble("\nAltura do manequim (m): "),
+                lerTexto("Material: "),
+                lerTexto("Roupa exposta: ")
         );
 
+        // IMAGEM 2 - CICLISMO
+        titulo("IMAGEM 2 - CICLISMO");
+
+        Ciclista ciclista = new Ciclista(
+                lerTexto("Nome do ciclista: "),
+                lerInt("Idade: "),
+                lerDouble("Velocidade inicial: ")
+        );
+
+        Bicicleta bicicleta = new Bicicleta(
+                lerTexto("\nMarca da bicicleta: "),
+                lerTexto("Modelo: "),
+                lerInt("Marcha atual: ")
+        );
+
+        Trilha trilha = new Trilha(
+                lerTexto("\nNome da trilha: "),
+                lerTexto("Tipo de piso: "),
+                lerDouble("Extensão da trilha (km): ")
+        );
+
+        // IMAGEM 3 - MÁSCARAS
+        titulo("IMAGEM 3 - MÁSCARAS");
+
+        Mascara mascara = new Mascara(
+                lerTexto("Material da máscara: "),
+                lerTexto("Cor: "),
+                lerDouble("Altura da máscara: ")
+        );
+
+        ColecaoMascaras colecao = new ColecaoMascaras(
+                lerTexto("\nNome da coleção: "),
+                lerInt("Quantidade de máscaras: "),
+                lerTexto("Origem da coleção: ")
+        );
+
+        Expositor expositor = new Expositor(
+                lerTexto("\nMaterial do expositor: "),
+                lerDouble("Altura do expositor (m): "),
+                lerInt("Quantidade de máscaras no expositor: ")
+        );
+
+        // IMAGEM 4 - CABELOS
+        titulo("IMAGEM 4 - CABELOS");
+
+        Cabelo cabelo = new Cabelo(
+                lerTexto("Cor do cabelo: "),
+                lerDouble("Comprimento do cabelo (cm): "),
+                lerTexto("Textura do cabelo: ")
+        );
+
+        Penteado penteado = new Penteado(
+                lerTexto("\nNome do penteado: "),
+                lerTexto("Estilo: "),
+                lerInt("Nível de dificuldade: ")
+        );
+
+        Pessoa pessoa = new Pessoa(
+                lerTexto("\nNome da pessoa: "),
+                lerInt("Idade: "),
+                lerTexto("Tipo de cabelo: ")
+        );
+
+        // EXECUÇÃO DOS MÉTODOS
+        titulo("DEMONSTRAÇÃO DOS MÉTODOS");
+
+        titulo("LOJA DE ROUPAS");
         loja.abrirLoja();
         loja.mostrarProdutos();
 
         roupa.vestir();
         roupa.exibirPreco();
-        roupa.alterarPreco(69.90);
+        roupa.alterarPreco(roupa.getPreco() * 0.90);
+        System.out.println("Preço após desconto de 10%:");
+        roupa.exibirPreco();
 
         manequim.vestirRoupa();
         manequim.trocarRoupa("Jaqueta");
@@ -53,27 +184,7 @@ public class Atv8 {
 
         loja.fecharLoja();
 
-
-        System.out.println("\n===== IMAGEM 2 - CICLISMO =====");
-
-        Ciclista ciclista = new Ciclista(
-                "Carlos",
-                25,
-                20
-        );
-
-        Bicicleta bicicleta = new Bicicleta(
-                "Caloi",
-                "Explorer",
-                5
-        );
-
-        Trilha trilha = new Trilha(
-                "Trilha da Floresta",
-                "Terra",
-                12.5
-        );
-
+        titulo("CICLISMO");
         ciclista.pedalar();
         ciclista.acelerar();
         ciclista.frear();
@@ -86,32 +197,12 @@ public class Atv8 {
         trilha.mostrarInformacoes();
         trilha.finalizarPercurso();
 
-
-        System.out.println("\n===== IMAGEM 3 - MÁSCARAS =====");
-
-        Mascara mascara = new Mascara(
-                "Madeira",
-                "Marrom",
-                35
-        );
-
-        ColecaoMascaras colecao = new ColecaoMascaras(
-                "Máscaras Africanas",
-                5,
-                "África"
-        );
-
-        Expositor expositor = new Expositor(
-                "Madeira",
-                1.80,
-                5
-        );
-
+        titulo("MÁSCARAS");
         mascara.exibirMascara();
         mascara.alterarCor("Preta");
 
         double valor = mascara.calcularValor();
-        System.out.println("Valor calculado: R$ " + valor);
+        System.out.printf("Valor calculado: R$ %.2f%n", valor);
 
         colecao.mostrarColecao();
         colecao.adicionarMascara();
@@ -121,27 +212,7 @@ public class Atv8 {
         expositor.adicionarMascara();
         expositor.removerMascara();
 
-
-        System.out.println("\n===== IMAGEM 4 - CABELOS =====");
-
-        Cabelo cabelo = new Cabelo(
-                "Castanho",
-                30,
-                "Ondulado"
-        );
-
-        Penteado penteado = new Penteado(
-                "Trança",
-                "Trançado",
-                3
-        );
-
-        Pessoa pessoa = new Pessoa(
-                "Ana",
-                22,
-                "Ondulado"
-        );
-
+        titulo("CABELOS");
         cabelo.lavar();
         cabelo.pentear();
         cabelo.cortar();
@@ -154,7 +225,9 @@ public class Atv8 {
         pessoa.escolherPenteado();
         pessoa.mudarCabelo("Cacheado");
 
+        titulo("APRESENTAÇÃO CONCLUÍDA");
+        System.out.println("Todos os objetos foram demonstrados.");
 
-        System.out.println("\n===== TESTES CONCLUÍDOS =====");
+        scanner.close();
     }
 }
